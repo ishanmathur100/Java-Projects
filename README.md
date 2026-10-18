@@ -58,3 +58,40 @@ This repository contains Java projects developed for learning and practical work
 
 ## Author
 Ishan Mathur
+
+### 3. JDBC (Java Database Connectivity)
+
+**Project Name:** JDBC Demo
+
+**Aim:** To connect a Java application to a MySQL database, insert student records, and retrieve and display records using JDBC.
+
+**Technologies Used:**
+- Java
+- JDBC
+- MySQL
+- MySQL Connector/J
+- VS Code
+
+**Main File:** `JdbcProject/JdbcDemo.java`
+
+**Project Contents:**
+- `JdbcDemo.java` — Connects to MySQL, inserts a student record, and displays records.
+- `lib/` — Contains the MySQL Connector/J driver.
+- `README.md` — Documents database setup and execution instructions.
+
+**Database:** `college`
+
+**Table:** `student` with columns `id`, `name`, and `branch`.
+
+**How to Run:**
+1. Ensure MySQL Server is running.
+2. Create the `college` database and `student` table.
+3. Update the MySQL username and password in `JdbcDemo.java`.
+4. Open the `JdbcProject` folder in the terminal.
+5. Compile and run the program using the instructions in `JdbcProject/README.md`.
+
+**Concepts Practiced:**
+- JDBC connectivity
+- SQL INSERT and SELECT operations
+- PreparedStatement and ResultSet
+- Exception handling
