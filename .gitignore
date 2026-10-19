@@ -1,3 +1,4 @@
 *.class
 .vscode/
 JDBCproject/lib/
+Experiment 6 - Java Servlet/target/
