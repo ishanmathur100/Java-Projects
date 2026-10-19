@@ -110,3 +110,13 @@ Ishan Mathur
 - **Files:** `Server.java`, `Client.java`
 - **Concepts:** TCP, sockets, IP address, port number, and Java networking.
 - **Project Folder:** [`Experiment 5 - Server-Client/`](Experiment%205%20-%20Server-Client/)
+
+### Experiment 6 - Java Servlet
+- **Description:** A Java Servlet web application demonstrating HTTP request handling and dynamic responses.
+- **Technologies:** Java, Jakarta Servlet API 6.1.0, Maven, Apache Tomcat 11.
+- **Project:** [Experiment 6 - Java Servlet](./Experiment%206%20-%20Java%20Servlet/)
+
+### Experiment 7 - HTML to JSP Conversion
+- **Description:** Student registration using JSP, Servlet, and Expression Language (EL).
+- **Technologies:** Java, JSP, Jakarta Servlet, Maven, Apache Tomcat 11.
+- **Project:** [Experiment 7 - HTML to JSP Conversion](./Experiment%207%20-%20HTML%20to%20JSP%20Conversion/)
