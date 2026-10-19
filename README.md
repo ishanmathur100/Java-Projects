@@ -103,3 +103,10 @@ Ishan Mathur
 - **Features:** Remote method invocation and remote addition of two integers.
 - **Expected Output:** `Result = 30`
 - **Project Folder:** [`RMI/`](RMI/)
+
+### 5. Experiment 5 - Server-Client
+- **Aim:** To implement TCP client-server communication using Java.
+- **Description:** Demonstrates communication between a client and server using TCP sockets. The client sends a message, and the server responds.
+- **Files:** `Server.java`, `Client.java`
+- **Concepts:** TCP, sockets, IP address, port number, and Java networking.
+- **Project Folder:** [`Experiment 5 - Server-Client/`](Experiment%205%20-%20Server-Client/)
