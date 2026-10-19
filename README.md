@@ -95,3 +95,11 @@ Ishan Mathur
 - SQL INSERT and SELECT operations
 - PreparedStatement and ResultSet
 - Exception handling
+
+
+### 4. Java RMI – Remote Method Invocation
+- **Description:** Demonstrates communication between a Java client and a remote server using Java RMI.
+- **Files:** `MyInterface.java`, `MyRemote.java`, `Server.java`, `Client.java`
+- **Features:** Remote method invocation and remote addition of two integers.
+- **Expected Output:** `Result = 30`
+- **Project Folder:** [`RMI/`](RMI/)
