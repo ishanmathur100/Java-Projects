@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResolveX | Smart IT Service Desk</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #172033;
+        }
+
+        header {
+            background: #14213d;
+            color: white;
+            padding: 22px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 26px;
+        }
+
+        header span {
+            color: #55d6be;
+        }
+
+        header p {
+            color: #d5dced;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 35px auto;
+            padding: 0 22px;
+        }
+
+        .welcome {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 28px;
+        }
+
+        .welcome h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .welcome p {
+            color: #64748b;
+        }
+
+        .button {
+            background: #1769ff;
+            color: white;
+            padding: 13px 19px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 23px;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px #1720330a;
+            border: 1px solid #e7ecf3;
+        }
+
+        .stat-card p {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .stat-card h3 {
+            font-size: 30px;
+        }
+
+        .blue { border-top: 4px solid #1769ff; }
+        .orange { border-top: 4px solid #f59e0b; }
+        .green { border-top: 4px solid #10b981; }
+        .red { border-top: 4px solid #ef4444; }
+
+        .section {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #e7ecf3;
+        }
+
+        .section h3 {
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        @media (max-width: 800px) {
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .welcome {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1>Resolve<span>X</span></h1>
+            <p>Smart IT Service Desk & Issue Management</p>
+        </div>
+        <div>IT Support Portal</div>
+    </header>
+
+    <main class="container">
+        <section class="welcome">
+            <div>
+                <h2>Service Desk Dashboard</h2>
+                <p>Track issues, manage requests, and keep work moving.</p>
+            </div>
+
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+    <a th:href="@{/tickets}" class="button">
+        View Tickets
+    </a>
+
+    <a th:href="@{/tickets/new}" class="button">
+        + Create Ticket
+    </a>
+    </div>
+        </section>
+
+        <section class="stats">
+            <div class="stat-card blue">
+                <p>Total Tickets</p>
+                <h2 th:text="${totalTickets}">0</h2>
+            </div>
+
+            <div class="stat-card orange">
+                <p>Open Tickets</p>
+                <h2 th:text="${openTickets}">0</h2>
+            </div>
+
+            <div class="stat-card green">
+                <p>Resolved Tickets</p>
+               <h2 th:text="${resolvedTickets}">0</h2>
+            </div>
+
+            <div class="stat-card red">
+                <p>High Priority</p>
+               <h3 th:text="${highPriorityTickets}">0</h3>
+            </div>
+        </section>
+
+        <section class="section" id="tickets">
+            <h3>Welcome to ResolveX</h3>
+            <p>
+                ResolveX is a centralized IT service desk platform designed
+                to report technical problems, organize support requests,
+                track ticket status, and improve issue resolution.
+            </p>
+            <p>
+                ResolveX connects ticket creation, priority tracking,
+                support staff assignment, and issue status management in one centralized platform.
+                Monitor service desk activity through live dashboard statistics, search tickets instantly,
+                and filter issues by status and priority to streamline IT support operations.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        ResolveX &copy; 2026 | Smart IT Service Desk Platform
+    </footer>
+</body>
+</html>

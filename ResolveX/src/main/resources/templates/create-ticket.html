@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Ticket | ResolveX</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #172033;
+        }
+
+        header {
+            background: #14213d;
+            color: white;
+            padding: 22px 7%;
+        }
+
+        header h1 {
+            font-size: 26px;
+        }
+
+        header span {
+            color: #55d6be;
+        }
+
+        header p {
+            color: #d5dced;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #1769ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .form-card {
+            background: white;
+            padding: 32px;
+            border: 1px solid #e3e9f2;
+            border-radius: 14px;
+            box-shadow: 0 5px 22px #1720330a;
+        }
+
+        .form-card h2 {
+            margin-bottom: 8px;
+            font-size: 27px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            margin-bottom: 26px;
+            line-height: 1.6;
+        }
+
+        .success {
+            background: #dcfce7;
+            color: #166534;
+            padding: 13px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 21px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px 13px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            background: white;
+        }
+
+        textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: 2px solid #bfdbfe;
+            border-color: #1769ff;
+        }
+
+        .hint {
+            color: #64748b;
+            font-size: 12px;
+            margin-top: 6px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 27px;
+        }
+
+        .button {
+            padding: 13px 19px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 14px;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+        }
+
+        .primary {
+            background: #1769ff;
+            color: white;
+        }
+
+        .secondary {
+            background: #e9eef6;
+            color: #334155;
+        }
+
+        footer {
+            text-align: center;
+            color: #64748b;
+            padding: 25px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 500px) {
+            .form-card {
+                padding: 22px;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .button {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Resolve<span>X</span></h1>
+        <p>Smart IT Service Desk & Issue Management</p>
+    </header>
+
+    <main class="container">
+        <a class="back-link" th:href="@{/}">&larr; Back to Dashboard</a>
+
+        <section class="form-card">
+            <h2>Create a Support Ticket</h2>
+            <p class="subtitle">
+                Describe your technical issue so the IT support team
+                can investigate and resolve it.
+            </p>
+
+            <div class="success"
+                 th:if="${successMessage}"
+                 th:text="${successMessage}">
+                Ticket created successfully!
+            </div>
+
+            
+            <div th:if="${errorMessage}"
+                 th:text="${errorMessage}"
+                 style="background: #fee2e2; color: #b91c1c; padding: 12px; border-radius: 8px; margin-bottom: 16px;">
+            </div>
+
+
+            <form th:action="@{/tickets}"
+                  th:object="${ticket}"
+                  method="post">
+
+                <div class="form-group">
+                    <label for="title">Issue Title *</label>
+                    <input type="text"
+                           id="title"
+                           th:field="*{title}"
+                           placeholder="e.g. Unable to connect to Wi-Fi"
+                           maxlength="150"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Issue Description *</label>
+                    <textarea id="description"
+                              th:field="*{description}"
+                              placeholder="Explain the problem and any error messages..."
+                              maxlength="2000"
+                              required></textarea>
+                    <p class="hint">Provide enough details to help diagnose the issue.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="priority">Priority *</label>
+                    <select id="priority"
+                            th:field="*{priority}"
+                            required>
+                        <option value="">Select priority</option>
+                        <option value="LOW">Low</option>
+                        <option value="MEDIUM">Medium</option>
+                        <option value="HIGH">High</option>
+                        <option value="CRITICAL">Critical</option>
+                    </select>
+                </div>
+
+                <div class="actions">
+                    <button type="submit" class="button primary">
+                        Submit Ticket
+                    </button>
+
+                    <a th:href="@{/}" class="button secondary">
+                        Cancel
+                    </a>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        ResolveX &copy; 2026 | Smart IT Service Desk Platform
+    </footer>
+</body>
+</html>
